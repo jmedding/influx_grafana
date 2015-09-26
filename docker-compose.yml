@@ -1,0 +1,26 @@
+influx:
+  image: tutum/influxdb
+  ports:
+   - "8086:8086"
+   - "8083:8083"
+   #- "8090:8090"
+  volumes:
+   - /var/influxdb:/data
+
+grafana:
+  image: grafana/grafana
+  ports:
+    - "3000:3000"
+    - "8080:80"
+  environment:
+    #INFLUXDB_PROTO: http
+    #INFLUXDB_HOST: localhost
+    #INFLUXDB_PORT: 8086
+    #INFLUXDB_NAME: db1
+    #INFLUXDB_USER: root
+    #INFLUXDB_PASS: surfin
+    HTTP_PASS: surfin
+    #ADMIN_USER: admin
+    #ADMIN_PASSWORD: surfin
+  links:
+    - influx
