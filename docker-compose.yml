@@ -1,5 +1,7 @@
 influx:
-  image: tutum/influxdb
+  #image: tutum/influxdb
+
+  build: influxDB
   ports:
    - "8086:8086"
    - "8083:8083"
