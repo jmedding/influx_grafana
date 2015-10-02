@@ -56,3 +56,24 @@ Let's get started:
 6. Grant the needed privileges to the new users
   * `GRANT WRITE on COMOS to citrix`
   * `GRANT READ on COMOS to grafana`
+
+
+## Testing
+### Create some Test Data
+Simulate a Comos terminal server by using the `curl` command.
+
+`curl -i -XPOST 'http://localhost:8086/write?db=COMOS&u=citrix&p=alstom' --data-binary 'cpu,host=server01,region=us-west value=0.64'`
+
+Make sure you use the correct ipaddres and run the command several times over 5 minutes, changing some of the values.  The server should sent a *204 no content* response if the transfer was succesful.
+
+### Configure Grafana
+
+*Grafana* will query data from *infulxDB* over port 8086. The *proxy* method will be used. This means that Grafana will display the dashboard to the user via html.  When a user makes a request, it will be sent to *grafan*, who will then make the query to *influxDB* and send the results to the user's web page.  It is important to understand that as *Grafana* and *influxDB* run on separate containers, they will have separate ip addresses, even though they are on the same local host.  *Docker-compose* will create some helper addresses to enable the containers communicate. 
+
+1. Run `sudo docker-compose ps` to see a list of containers running.  Note the exact name of the *influxDB* container.  It's probably something like "influxgrafana_influx_1"
+
+2. Using a web browser goto *\<ip address>:3000*. You should see the *Grafana* login page. You can login as *admin:admin*.
+
+You are now logged in as an administrator.
+
+![alt text](grafana_datasource_config.png "Grafana Datasource Configuration")
