@@ -76,4 +76,16 @@ Make sure you use the correct ipaddres and run the command several times over 5 
 
 You are now logged in as an administrator.
 
+3. Select `Datasources` and then `Add New`.  Configure your database like this.  Be sure to use the correct url, user names and passwords for your setup. Save the configuration once your `Test Connection` is successful.
+
 ![alt text](grafana_datasource_config.png "Grafana Datasource Configuration")
+
+4. Go to `Dashboards` and click on the `Home` link in the upper left, next to the Grafana logo. Then click on `New` at the bottom of the form.
+
+Click on the green tab in the upper left of the dashboard area and select `Add Panel -> Graph`. 
+
+5. Configer the graph by first clicking on the `click here` text and then select `Edit`.  Click on the `From` field and select `cpu` from the list.  You should then see the data that your created above in the graph. 
+
+6. Congratulations!
+
+![alt text](grafana_dashboard_config.png "Grafana Dashboard Configuration")
