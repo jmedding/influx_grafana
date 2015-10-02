@@ -9,6 +9,7 @@ This document details the steps needed to deploy the *influxDB* and *Grafana* in
 * **Other Linux distros:** Adapt the *install.sh* script accordingly  
 
 Let's get started:
+
 1. Start with a fresh install of Ubuntu 14.04 LTS
 
 2. Ensure that *git* and *curl* are installed
@@ -23,20 +24,20 @@ Let's get started:
 
 7. `sudo docker-compose up`
 
-8. Using a web browser goto *\<ip address>:8083*. You should see the influxDB web console. You can now access influxDB as an Admin as there are no access rights configured yet.
+8. Using a web browser goto *\<ip address>:8083*. You should see the influxDB web console. You can now access *influxDB* as an Admin as there are no access rights configured yet.
 
-9. Using a wev browser goto *\<ip address>:3000*. You should see the Grafana login page. You can login as *admin:admin*.
+9. Using a web browser goto *\<ip address>:3000*. You should see the *Grafana* login page. You can login as *admin:admin*.
 
 ## Create a database for Comos data
-1. Access the influxDB web console on port 8083 of the influxDB server.
+1. Access the *influxDB* web console on port 8083 of the *influxDB* server.
 
-2. In the *Query* box, enter `CREATE DATABASE COMOS`
+2. In the **Query** box, enter `CREATE DATABASE COMOS`
 
 3. Check that the response is positive
 
-## Configure User Authentication and Authorization for influxDB
+## Configure User Authentication and Authorization for *influxDB*
 
-1. Access the influxDB web console on port 8083 of the influxDB server.
+1. Access the influxDB web console on port 8083 of the *influxDB* server.
 
 2. Create an Admin user *(jon/surfin)*
 
