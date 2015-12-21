@@ -35,6 +35,7 @@ Let's get started:
    * HostIP  => 127.0.0.1:3000
    * GuestIP => \<ip address>:3000
   * Repeat for ports 8083 and 8086
+  * With these settings you should be able to use the address localhost:3000 in your web browser to reach Grafana.
 
 ## Create a database for Comos data
 1. Access the *influxDB* web console on port 8083 of the *influxDB* server.
