@@ -1,5 +1,7 @@
 sudo yum -y update && sudo yum -y upgrade
 curl -sSL https://get.docker.com | sh
+sudo service docker start
+
 _user="$(id -u -n)"
 sudo usermod -aG docker $_user
 
