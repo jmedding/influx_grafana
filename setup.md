@@ -28,6 +28,14 @@ Let's get started:
 
 9. Using a web browser goto *\<ip address>:3000*. You should see the *Grafana* login page. You can login as *admin:admin*.
 
+### If you are using a VM on your local machine (like for development).
+
+  * The \<ip address> returned by `ifconfig` will be the ip address inside the the VM. Use this to setup port forwarding in your VM
+  * In the VM network settings add port forwarding rules like so
+   * HostIP  => 127.0.0.1:3000
+   * GuestIP => \<ip address>:3000
+  * Repeat for ports 8083 and 8086
+
 ## Create a database for Comos data
 1. Access the *influxDB* web console on port 8083 of the *influxDB* server.
 
