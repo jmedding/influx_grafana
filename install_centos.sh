@@ -7,3 +7,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.4.2/docker-co
 
 sudo mv docker-compose /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+sudo yum install net-tools
+echo "\n"
+echo "run 'ifconfig' to determine this machines IP address"
