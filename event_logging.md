@@ -29,7 +29,10 @@ This value is a 64bit integer, representing the number of nanoseconds since Jan 
 
 ### Escaping ',' and spaces
 
-If the key or value name includes comma's or spaces, they must be escaped with a backslash (\).  Example: 'Valve\ Query, user=Medding\,\ Jon'.  The space separating the tags and fields and fields and timestamp does not need to be escaped.  In general, try to choose keys that do not require escaping as this will make using the manual data exploration tools easier.
+If the key or value name includes comma's or spaces, they must be escaped with a backslash (\).  Example: 'Valve\ Query, user=Medding\,\ Jon'.  The space separating the tags and fields and fields and timestamp does not need to be escaped.  
+
+#### Tip
+In general, try to choose keys that do not require escaping as this will make using the manual data exploration tools easier.
 
 ### Full example
 
