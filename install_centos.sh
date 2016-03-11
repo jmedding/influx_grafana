@@ -1,4 +1,5 @@
 sudo yum -y update && sudo yum -y upgrade
+sudo yum -y install nano
 curl -sSL https://get.docker.com | sh
 sudo service docker start
 
