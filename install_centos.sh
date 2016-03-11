@@ -1,5 +1,5 @@
 distro=$(cat /proc/version)
-if [[ $version == *"Red Hat"* ]]
+if [[ $distro == *"Red Hat"* ]]
 then
   echo "Installing for Red Hat and CentOS"
   sudo yum -y update && sudo yum -y upgrade
@@ -7,7 +7,7 @@ then
   sudo yum -y install net-tools
 fi
 
-if [[ $version == *"Debian"* ]]
+if [[ $distro == *"Debian"* ]]
 then
   echo "Installing for Debian and Ubuntu"
   sudo apt-get -y update && sudo apt-get -y upgrade
@@ -18,7 +18,7 @@ fi
 curl -sSL https://get.docker.com | sh
 sudo service docker start
 
-_user= $SUDO_USER  #"$(id -u -n)"
+_user=$SUDO_USER  #"$(id -u -n)"
 echo "*******Setting up docker group membership for user: $_user"
 #below command seems to be failing on install. Check groups and run manually if needed
 sudo usermod -aG docker $_user
