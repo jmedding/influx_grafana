@@ -1,21 +1,37 @@
-sudo yum -y update && sudo yum -y upgrade
-sudo yum -y install nano
+distro=$(cat /proc/version)
+if [[ $version == *"Red Hat"* ]]
+then
+  echo "Installing for Red Hat and CentOS"
+  sudo yum -y update && sudo yum -y upgrade
+  sudo yum -y install nano
+  sudo yum -y install net-tools
+  sudo yum -y install git
+fi
+
+if [[ $version == *"Debian"* ]]
+then
+  echo "Installing for Debian and Ubuntu"
+  sudo apt-get -y update && sudo apt-get -y upgrade
+  #sudo apt-get -y install nano
+  sudo apt-get -y install net-tools
+  sudo apt-get -y install git
+fi
+
 curl -sSL https://get.docker.com | sh
 sudo service docker start
 
 _user="$(id -u -n)"
 #below command seems to be failing on install. Check groups and run manually if needed
 sudo usermod -aG docker $_user
-
 echo "user '$_user' added to docker group - no need to use sudo with this user for docker commands"
 
-
 sudo curl -L https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m` > docker-compose
-
 sudo mv docker-compose /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-sudo yum -y install net-tools
+echo "********* Critical ******************"
+echo "Make sure the $_user is in the docker group. If not, docker_compose will fail"
+echo "if needed run 'sudo usermod -aG docker $_user"
 
 echo "********* IMPORTANT *****************"
 echo "You must logout and back in. Try 'exit' on the command line."
