@@ -18,7 +18,7 @@ fi
 curl -sSL https://get.docker.com | sh
 sudo service docker start
 
-_user= "$SUDO_USER"  #"$(id -u -n)"
+_user= $SUDO_USER  #"$(id -u -n)"
 echo "*******Setting up docker group membership for user: $_user"
 #below command seems to be failing on install. Check groups and run manually if needed
 sudo usermod -aG docker $_user
