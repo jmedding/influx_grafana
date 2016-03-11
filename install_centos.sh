@@ -5,7 +5,6 @@ then
   sudo yum -y update && sudo yum -y upgrade
   sudo yum -y install nano
   sudo yum -y install net-tools
-  sudo yum -y install git
 fi
 
 if [[ $version == *"Debian"* ]]
@@ -14,7 +13,6 @@ then
   sudo apt-get -y update && sudo apt-get -y upgrade
   #sudo apt-get -y install nano
   sudo apt-get -y install net-tools
-  sudo apt-get -y install git
 fi
 
 curl -sSL https://get.docker.com | sh
