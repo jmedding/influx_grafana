@@ -21,3 +21,9 @@ should do it.  I followed this tutorial: https://www.digitalocean.com/community/
 Be sure to follow the git setup steps as well.
 
 Finally, make sure that the grafana user has the right permissions, otherwise the Docker commands won't work.
+
+If you have SSL Certificate erros when doing git clone, you may have to disable github's certificate verification
+    
+    export GIT_SSL_NO_VERIFY=true
+
+
