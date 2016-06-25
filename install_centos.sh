@@ -7,6 +7,14 @@ then
   sudo yum -y install net-tools
 fi
 
+if [[ $distro == *"SUSE"* ]]
+then
+  echo "Installing for Red Hat and CentOS"
+  sudo yum -y update && sudo yum -y upgrade
+  sudo yum -y install nano
+  sudo yum -y install net-tools
+fi
+
 if [[ $distro == *"Debian"* ]]
 then
   echo "Installing for Debian and Ubuntu"
