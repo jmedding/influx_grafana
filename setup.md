@@ -3,6 +3,32 @@ The following instructions are specifically for my usecase, which is to report u
 
 This document details the steps needed to deploy the *influxDB* and *Grafana* instances.  Adapting the Comos application to report events is out of the scope of this document.
 
+## Proxy setttings
+If you are working from work, and you work at a mega-corp, you may have to configure your proxy settings either in your dev vm or on the actual production server.  To check that your proxies are ok, run 
+`wget google.com`
+
+If you get a connection refused error, it's likely you need to set a proxy. I found that the best approach was to look in the PAC file for possible proxies. There were several in my companies depending on which web sight you are trying to visit.  I tried several before finding one that worked. You can check your current proxy settings by running:
+`set | grep proxy`
+
+I get the following on my machine:
+
+    $ set | grep proxy
+    HTTPS_PROXY=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    HTTP_PROXY=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    http_proxy=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    https_proxy=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+
+if the `wget`command fails try changing your http_proxy setting with this command:
+
+    export http_proxy=http://new.proxy.addres:port
+
+Retry the different proxy servers until wget can successfuly download google's search query page.  Then update the other three proxy variables in a similar way.  **Note that the method above is only temporary.**  To permanently set your proxy server, you must update your bashrc file (/etc/bashrc for instance).  Add the export commands near the end of the file.
+
+    export http_proxy=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    export https_proxy=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    export HTTP_PROXY=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+    export HTTPS_PROXY=http://iss-emea-pitc-londonz.proxy.corporate.gtm.ge.com:80
+
 ## Installation and Startup
 *InfluxDB* and *Grafana* will be deployed as*Docker* containers. This guide and supporting scripts are set up for a single server installation on Ubuntu 14.04 LTS.  It is possible to use other Linux distributions and/or separate servers for the *influxDB* and *Grafana* containers but changes will be needed.
 * **Multiple Servers:** Look in the *docker-compose* setup to configure multiple servers
