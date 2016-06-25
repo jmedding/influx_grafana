@@ -23,6 +23,7 @@ then
   sudo apt-get -y install net-tools
 fi
 
+echo "*********Docker installation "
 curl -sSL https://get.docker.com | sh
 sudo service docker start
 
